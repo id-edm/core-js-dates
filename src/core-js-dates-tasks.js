@@ -31,7 +31,6 @@ function dateToTimestamp(date) {
  * Date(2023, 5, 1, 8, 20, 55) => '08:20:55'
  * Date(2015, 10, 20, 23, 15, 1) => '23:15:01'
  */
-
 function formatTimeUnit(unit) {
   return unit.toString().padStart(2, '0');
 }
@@ -56,8 +55,18 @@ function getTime(date) {
  * '03 Dec 1995 00:12:00 UTC' => 'Sunday'
  * '2024-01-30T00:00:00.000Z' => 'Tuesday'
  */
-function getDayName(/* date */) {
-  throw new Error('Not implemented');
+function getDayName(date) {
+  const namesDay = {
+    0: 'Sunday',
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Saturday',
+  };
+  const newDate = new Date(date);
+  return namesDay[newDate.getUTCDay()];
 }
 
 /**
